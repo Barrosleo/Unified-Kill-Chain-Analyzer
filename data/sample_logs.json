@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-05-15T10:00:00Z",
+    "action": "User login from suspicious location",
+    "artifact": "192.168.1.50"
+  },
+  {
+    "timestamp": "2025-05-15T10:05:00Z",
+    "action": "Lateral movement detected between hosts",
+    "artifact": "Host123"
+  },
+  {
+    "timestamp": "2025-05-15T10:10:00Z",
+    "action": "Data exfiltration using encrypted channel",
+    "artifact": "EncryptedPayload"
+  }
+]
