@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unified Kill Chain Analyzer Dashboard</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Unified Kill Chain Analyzer</h1>
+  <canvas id="killChainChart" width="600" height="400"></canvas>
+  <script>
+    // Fetch classified logs from the API endpoint
+    fetch('/api/logs')
+      .then(response => response.json())
+      .then(data => {
+        // Count events per phase
+        const phaseCounts = {};
+        data.forEach(event => {
+          phaseCounts[event.phase] = (phaseCounts[event.phase] || 0) + 1;
+        });
+        const labels = Object.keys(phaseCounts);
+        const counts = Object.values(phaseCounts);
+        
+        const ctx = document.getElementById('killChainChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Number of Events',
+              data: counts,
+              backgroundColor: 'rgba(75, 192, 192, 0.6)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching logs:', error));
+  </script>
+</body>
+</html>
