@@ -3,6 +3,27 @@
 ## Purpose
 Develop a tool that ingests security event data and maps individual events or alert artifacts to the phases of the Unified Kill Chain—from initial foothold ("In"), through network propagation ("Through"), to actions on objectives ("Out"). This tool helps SOC analysts visualize the progression of an attack, identify detection gaps, and refine mitigation strategies.
 
+## Repository Structure
+```
+Unified-Kill-Chain-Analyzer/
+├── backend/
+│   ├── app.py                 # Main Flask app handling API endpoints and rendering the dashboard template
+│   ├── parser.py              # Module for log ingestion and parsing
+│   ├── classifier.py          # Module for mapping event artifacts to Unified Kill Chain phases
+│   ├── requirements.txt       # Python dependencies
+│   └── templates/
+│       └── dashboard.html     # HTML template served by Flask for the dashboard
+├── frontend/
+│   ├── index.html             # Standalone dashboard page (if not using Flask’s built-in templates)
+│   ├── css/
+│   │   └── styles.css         # Styling for the dashboard
+│   └── js/
+│       └── dashboard.js       # JavaScript for fetching data and rendering visualizations via Chart.js
+├── data/
+│   └── sample_logs.json       # Example log file for testing and demonstration
+└── README.md                  # Project overview, setup instructions, and usage guidelines
+```
+
 ## Key Features
 - **Log Ingestion & Parsing:**  
   Upload sample log files or connect to threat intelligence sources to ingest security event data. The tool parses logs and extracts key artifacts (e.g., IP addresses, suspicious commands).
