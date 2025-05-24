@@ -53,7 +53,7 @@ Unified-Kill-Chain-Analyzer/
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/Unified-Kill-Chain-Analyzer.git
+   git clone https://github.com/Barrosleo/Unified-Kill-Chain-Analyzer.git
    cd Unified-Kill-Chain-Analyzer
    ```
    
